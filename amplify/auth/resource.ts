@@ -8,5 +8,5 @@ export const auth = defineAuth({
   loginWith: {
     email: true,
   },
-  groups: ['admin']
+  groups: ['admin', 'anycompany_read', 'anycompany_write', 'othercompany_read', 'othercompany_write']
 });
