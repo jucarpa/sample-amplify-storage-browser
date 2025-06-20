@@ -24,11 +24,12 @@ export const anyCompanyStorage = defineStorage({
     'public/*': [
         allow.groups(['admin']).to(['read', 'write', 'delete']),
         allow.groups(['anycompany_read']).to(['read']),
+        allow.groups(['anycompany_write']).to(['read']),
     ],
     'private/*': [
         allow.groups(['admin']).to(['read', 'write', 'delete']),
         allow.groups(['anycompany_read']).to(['read']),
-        allow.groups(['anycompany_write']).to(['write']),
+        allow.groups(['anycompany_write']).to(['read','write','delete']),
     ]
    })
 });
@@ -39,11 +40,12 @@ export const otherCompanyStorage = defineStorage({
     'public/*': [
         allow.groups(['admin']).to(['read', 'write', 'delete']),
         allow.groups(['othercompany_read']).to(['read']),
+        allow.groups(['othercompany_write']).to(['read']),
     ],
     'private/*': [
         allow.groups(['admin']).to(['read', 'write', 'delete']),
         allow.groups(['othercompany_read']).to(['read']),
-        allow.groups(['othercompany_write']).to(['write']),
+        allow.groups(['othercompany_write']).to(['read','write','delete']),
     ]
    })
 });
