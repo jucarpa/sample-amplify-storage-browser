@@ -18,19 +18,34 @@ export const storage = defineStorage({
    })
 });
 
-export const secondaryStorage = defineStorage({
-  name: 'mySecondaryStorageBucket',
+export const anyCompanyStorage = defineStorage({
+  name: 'anyCompanyBucket',
    access: (allow) => ({
-    'backup_public/*': [
-        allow.guest.to(['read', 'write']),
-        allow.authenticated.to(['read', 'write', 'delete']),
-    ],
-    'backup_admin/*': [
+    'public/*': [
         allow.groups(['admin']).to(['read', 'write', 'delete']),
-        allow.authenticated.to(['read'])
+        allow.groups(['anycompany_read']).to(['read']),
+        allow.groups(['anycompany_write']).to(['read']),
     ],
-    'backup_private/{entity_id}/*': [
-        allow.entity('identity').to(['read', 'write', 'delete'])
+    'private/*': [
+        allow.groups(['admin']).to(['read', 'write', 'delete']),
+        allow.groups(['anycompany_read']).to(['read']),
+        allow.groups(['anycompany_write']).to(['read','write','delete']),
+    ]
+   })
+});
+
+export const otherCompanyStorage = defineStorage({
+  name: 'otherCompanyBucket',
+   access: (allow) => ({
+    'public/*': [
+        allow.groups(['admin']).to(['read', 'write', 'delete']),
+        allow.groups(['othercompany_read']).to(['read']),
+        allow.groups(['othercompany_write']).to(['read']),
+    ],
+    'private/*': [
+        allow.groups(['admin']).to(['read', 'write', 'delete']),
+        allow.groups(['othercompany_read']).to(['read']),
+        allow.groups(['othercompany_write']).to(['read','write','delete']),
     ]
    })
 });
