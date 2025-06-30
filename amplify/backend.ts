@@ -10,5 +10,6 @@ defineBackend({
   auth,
   storage,
   anyCompanyStorage,
-  otherCompanyStorage
+  otherCompanyStoragem,
+  assetsStorage
 });
