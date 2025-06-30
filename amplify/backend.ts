@@ -30,17 +30,14 @@ backend.addOutput({
         aws_region: customBucket.env.region,
         bucket_name: customBucket.bucketName,
         name: customBucket.bucketName,
-        /*
-          @ts-expect-error: Amplify backend type issue
-          https://github.com/aws-amplify/amplify-backend/issues/2569
-        */ 
+        // @ts-expect-error: Amplify backend type issue - https://github.com/aws-amplify/amplify-backend/issues/2569
         paths: {
           "public/*": {
             //authenticated: ["get", "list", "write", "delete"],
           },
           "admin/*": {
             //authenticated: ["get", "list"],
-            groupsadmin: ["get", "list", "write", "delete"],
+            "groups:admin": ["get", "list", "write", "delete"],
           },
         },
       }
