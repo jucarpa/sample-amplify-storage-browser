@@ -8,6 +8,8 @@ import './App.css';
 import config from '../amplify_outputs.json';
 import { Amplify } from 'aws-amplify';
 import { Authenticator, Button } from '@aws-amplify/ui-react';
+import logo from './assets/logo.png';
+
 Amplify.configure(config);
 
 const { StorageBrowser } = createStorageBrowser({
