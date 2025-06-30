@@ -37,7 +37,7 @@ backend.addOutput({
           },
           "admin/*": {
             //authenticated: ["get", "list"],
-            "groups:admin": ["get", "list", "write", "delete"],
+            groupsadmin: ["get", "list", "write", "delete"],
           },
         },
       }
