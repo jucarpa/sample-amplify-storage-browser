@@ -50,5 +50,13 @@ export const otherCompanyStorage = defineStorage({
    })
 });
 
-
+export const assetsStorage = defineStorage({
+  name: 'assetsStorage',
+  bucketName: 'assets-files-jantcart-35667',
+  access: (allow) => ({
+    'admin/*': [
+      allow.groups(['admin']).to(['read', 'write', 'delete'])
+    ]
+  })
+});
 
