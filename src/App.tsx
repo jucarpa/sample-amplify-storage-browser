@@ -24,6 +24,9 @@ function App() {
             <Button onClick={signOut}>Sign out</Button>
           </div>
           <StorageBrowser />
+      <div className="footer">
+            <img src={logo} alt="Company Logo" className="company-logo" />
+          </div>
         </>
       )}
     </Authenticator>
